@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{9138D004-102E-4EA9-8D35-5AAAB2D6592B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigDriver", "Tools\ConfigDriver\ConfigDriver.csproj", "{9B7D1849-E1CF-4758-AE28-B3D88CC91624}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{AB945D4C-47AE-4EC2-83A9-ED3B5AD64683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutateConfigFile", "Lib\MutateConfigFile\MutateConfigFile.csproj", "{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B7D1849-E1CF-4758-AE28-B3D88CC91624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7D1849-E1CF-4758-AE28-B3D88CC91624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7D1849-E1CF-4758-AE28-B3D88CC91624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7D1849-E1CF-4758-AE28-B3D88CC91624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B7D1849-E1CF-4758-AE28-B3D88CC91624} = {9138D004-102E-4EA9-8D35-5AAAB2D6592B}
+		{E1B7FC03-3777-4E2E-8A8D-1D00AD689D5F} = {AB945D4C-47AE-4EC2-83A9-ED3B5AD64683}
+	EndGlobalSection
+EndGlobal

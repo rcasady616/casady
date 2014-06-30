@@ -1,0 +1,3 @@
+﻿Medrio.QA.Tests.Functional.dll.config|/configuration/appSettings/add[@key='Hostname']|value|qaauto-01.ad.medrio.com
+Medrio.QA.Tests.Functional.dll.config|/configuration/appSettings/add[@key='TestUser']|value|rcasady@medrio.com
+Medrio.QA.Tests.Functional.dll.config|/configuration/appSettings/add[@key='TestPswd']|value|medrio12

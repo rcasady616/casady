@@ -1,0 +1,38 @@
+﻿PS C:\Windows\system32> ."C:\Users\rcasady\Documents\My Dropbox\code\samples\ConfigChange\ConfigDriver\bin\Release\Confi
+gDriver.exe"
+ConfigDriver.exe is a tool for automating applacation configuration
+This program was written by Richard Casady for personal use only
+------------------------------------------------
+
+Sample usage:
+ConfigDriver.exe C:\ChangeFile.txt
+------------------------------------------------
+
+File layout definition:
+To change a Single node value
+FileNamePath|XPathQuery|NodeValue
+To change an attribute value
+FileNamePath|XPathQuery|AttributeName|AttributeValue
+The parameters are "|" delimited
+------------------------------------------------
+
+Sample change file:
+..\..\sampleFile.xml|/ConfigDriver/SampleOne|Change one node value
+..\..\sampleFile.xml|/ConfigDriver/SampleTwo/Attrib[@name='item1']|description|Change one specific attribute value
+..\..\sampleFile.xml|/ConfigDriver/SampleThree[@name='SpecificNone']|Change one node value by name
+------------------------------------------------
+
+Sample resulting file:
+<ConfigDriver>
+  <SampleOne>Change one node value</SampleOne>
+  <SampleTwo>
+    <Attrib name="item1" description="Change one specific attribute value" />
+    <Attrib name="item2" description="" />
+  </SampleTwo>
+  <SampleThree>
+  </SampleThree>
+  <SampleThree name="SpecificNone">Change one specific node value</SampleThree>
+</ConfigDriver>
+------------------------------------------------
+
+PS C:\Windows\system32> To change a Single node value

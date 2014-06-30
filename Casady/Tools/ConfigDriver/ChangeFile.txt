@@ -1,0 +1,3 @@
+﻿..\..\sampleFile.xml|/ConfigDriver/SampleOne|Change one node value
+..\..\sampleFile.xml|/ConfigDriver/SampleTwo/Attrib[@name='item1']|description|Change one specific attribute value
+..\..\sampleFile.xml|/ConfigDriver/SampleThree[@name='SpecificNone']|Change one node value by name
