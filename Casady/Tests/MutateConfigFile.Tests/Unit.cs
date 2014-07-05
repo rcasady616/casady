@@ -34,6 +34,8 @@ namespace Casady.Tests.MutateFile.Tests
 
         #endregion
 
+        #region update Attribute 
+
         [TestCase(@"sampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "description", "Change one specific attribute value")]
         public void ChangeAttributeValue(string fileName, string xPathQuery, string attributeKey, string attributeValue)
         {
@@ -41,6 +43,19 @@ namespace Casady.Tests.MutateFile.Tests
             AssertAttribute(fileName, xPathQuery, attributeKey, attributeValue);
         }
 
+        [TestCase(@"..\..\NeverGonnaGetIt.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "description", "Change one specific attribute value")]
+        public void ThrowsFileNotFound(string fileName, string xPathQuery, string attributeKey, string attributeValue)
+        {
+            Exception ex = Assert.Throws<FileNotFoundException>(() => ConfigChange.UpdateConfigFile(fileName, xPathQuery, attributeKey, attributeValue));
+        }
+
+        [TestCase(@"sampleFile.xml", "/NeverGonnaGetIt/NeverGonnaGetIt/Attrib[@name='NeverGetIt']", "description", "Change one specific attribute value")]
+        public void ThrowsNodeNotFound(string fileName, string xPathQuery, string attributeKey, string attributeValue)
+        {
+            Exception ex = Assert.Throws<XmlNodeNotFoundException>(() => ConfigChange.UpdateConfigFile(fileName, xPathQuery, attributeKey, attributeValue));
+        }
+
+        #endregion
         private void AssertEqualXml(string expectedXml, string actualXml)
         {
             Assert.IsTrue(XNode.DeepEquals(XElement.Parse(expectedXml), XElement.Parse(actualXml)),
