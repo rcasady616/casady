@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
 
 namespace Casady.Lib.MutateConfigFile
@@ -14,21 +13,19 @@ namespace Casady.Lib.MutateConfigFile
         /// <param name="nodeValue"></param>
         public static void UpdateConfigFile(string fileName, string xPathQuery, string nodeValue)
         {
-            if (File.Exists(fileName))
-            {
-                var xmlDoc = new XmlDocument();
-                xmlDoc.Load(fileName);
-                var nodeList = xmlDoc.SelectNodes(xPathQuery);
-                if (nodeList == null)
-                    throw new XmlNodeNotFoundException("", fileName, xPathQuery, nodeValue);
-                if (nodeList.Count == 0)
-                    Console.Write(new XmlNodeNotFoundException("", fileName, xPathQuery, nodeValue));
-                if (nodeList.Count > 1)
-                    Console.Write(new MultipleNodesFoundException("", fileName, xPathQuery, nodeValue));
-
-                nodeList[0].InnerText = nodeValue;
-                xmlDoc.Save(fileName);
-            }
+            if (!File.Exists(fileName))
+                throw new FileNotFoundException("", fileName);
+            var xmlDoc = new XmlDocument();
+            xmlDoc.Load(fileName);
+            var nodeList = xmlDoc.SelectNodes(xPathQuery);
+            if (nodeList == null)
+                throw new XmlNodeNotFoundException("", fileName, xPathQuery, nodeValue);
+            if (nodeList.Count == 0)
+                throw new XmlNodeNotFoundException("", fileName, xPathQuery, nodeValue);
+            if (nodeList.Count > 1)
+                throw new MultipleNodesFoundException("", fileName, xPathQuery, nodeValue);
+            nodeList[0].InnerText = nodeValue;
+            xmlDoc.Save(fileName);
         }
 
         /// <summary>
@@ -48,16 +45,16 @@ namespace Casady.Lib.MutateConfigFile
             if (nodeList == null)
                 throw new XmlNodeNotFoundException("", fileName, xPathQuery, attributeKey, attributeValue);
             if (nodeList.Count == 0)
-                Console.Write(new XmlNodeNotFoundException("", fileName, xPathQuery, attributeKey, attributeValue));
+                throw new XmlNodeNotFoundException("", fileName, xPathQuery, attributeKey, attributeValue);
             if (nodeList.Count > 1)
-                Console.Write(new MultipleNodesFoundException("", fileName, xPathQuery, attributeKey, attributeValue));
+                throw new MultipleNodesFoundException("", fileName, xPathQuery, attributeKey, attributeValue);
 
             foreach (XmlNode node in nodeList)
             {
                 if (node.Attributes != null && node.Attributes[attributeKey] != null)
                     node.Attributes[attributeKey].Value = attributeValue;
                 else
-                    Console.Write(new XmlAttributesNotFoundException("", fileName, xPathQuery, attributeKey, attributeValue));
+                    throw new XmlAttributesNotFoundException("", fileName, xPathQuery, attributeKey, attributeValue);
             }
             xmlDoc.Save(fileName);
         }
