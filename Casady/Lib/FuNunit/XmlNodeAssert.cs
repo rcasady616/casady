@@ -18,6 +18,7 @@ namespace NUnit.Framework
 
         public static XmlNode AttributeExists(this XmlNode xmlNode, string attributeName)
         {
+            Assert.NotNull(xmlNode.Attributes);
             var attribute = xmlNode.Attributes[attributeName];
             Assert.NotNull(attribute);
             return xmlNode;
@@ -31,7 +32,7 @@ namespace NUnit.Framework
         }
 
         /// <summary>
-        /// Asserts that the Value and all Attributes Values are Equivalent
+        /// Asserts that the InnerText Value and all Attributes Values are Equivalent
         /// Equivalent meaning all attribute values are equal but the match may be in any order. 
         /// </summary>
         /// <param name="xmlNode"></param>
