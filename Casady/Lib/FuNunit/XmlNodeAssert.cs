@@ -41,7 +41,8 @@ namespace NUnit.Framework
         {
             var attributes = expected.Attributes;
             if (attributes != null)
-                CollectionAssert.AreEqual(attributes, xmlNode.Attributes);
+                foreach (XmlAttribute attribute in attributes)
+                    Assert.AreEqual(expected.Attributes[attribute.Name].Value, xmlNode.Attributes[attribute.Name].Value);
             xmlNode.InnerTextAreEqual(expected.InnerText);
             return xmlNode;
         }

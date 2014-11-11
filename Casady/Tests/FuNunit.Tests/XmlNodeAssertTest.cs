@@ -145,9 +145,8 @@ namespace FuNunit.Tests
         [ExpectedException(typeof(AssertionException))]
         [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleOne", "<SampleOne>Change one node valu</SampleOne>")]
         [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item1\" description=\"1Change one specific attribute value\" />")]
-        [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item1\" descriptions=\"Change one specific attribute value\" />")]
-        [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item1\" description=\"Change one specific attribute value\"></Attrib>")]
-        [TestCase(@"TestData/SampleFileAlternateStructure.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item1\" description=\"Change one specific attribute value\" />")]
+        [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item11\" descriptions=\"Change one specific attribute value\" />")]
+        [TestCase(@"TestData/SampleFile.xml", "/ConfigDriver/SampleTwo/Attrib[@name='item1']", "<Attrib name=\"item1\" description=\"Change one specific attribute value\">Kevin</Attrib>")]
         public void DataEqualThows(string fileName, string xPathQuery, string expectedValue)
         {
             if (!File.Exists(fileName))
