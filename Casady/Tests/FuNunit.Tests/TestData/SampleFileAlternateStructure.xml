@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigDriver>
+  <SampleOne>Change one node value</SampleOne>
+  <SampleTwo>
+    <Attrib name="item1" description="Change one specific attribute value"></Attrib>
+    <Attrib name="item2" description=""></Attrib>
+  </SampleTwo>
+  <SampleThree/>
+  <SampleThree name="SpecificNone">Change one specific node value</SampleThree>
+</ConfigDriver>

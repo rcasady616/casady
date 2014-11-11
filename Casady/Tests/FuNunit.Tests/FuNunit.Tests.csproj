@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86A94F80-E4B1-4FE8-B0F9-A4487FC4CC0C}</ProjectGuid>
+    <ProjectGuid>{35C982E7-6670-4473-A3D2-3A48F311EC5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Casady.Tests.MutateFile.Tests</RootNamespace>
-    <AssemblyName>Casady.Tests.MutateFile.Tests</AssemblyName>
+    <RootNamespace>FuNunit.Tests</RootNamespace>
+    <AssemblyName>FuNunit.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,23 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Unit.cs" />
+    <Compile Include="XmlNodeAssertTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lib\MutateConfigFile\MutateConfigFile.csproj">
-      <Project>{e1b7fc03-3777-4e2e-8a8d-1d00ad689d5f}</Project>
-      <Name>MutateConfigFile</Name>
-    </ProjectReference>
+    <Content Include="TestData\SampleFileAlternateStructure.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\SampleFile.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sampleFile.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
+    <ProjectReference Include="..\..\Lib\FuNunit\FuNunit.csproj">
+      <Project>{13ef25f9-a8f6-4d08-9683-376a1a255366}</Project>
+      <Name>FuNunit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
